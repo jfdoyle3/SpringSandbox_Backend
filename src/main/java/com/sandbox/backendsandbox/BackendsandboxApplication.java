@@ -1,5 +1,7 @@
 package com.sandbox.backendsandbox;
 
+import com.sandbox.backendsandbox.api.NewsAPI;
+import kong.unirest.json.JSONArray;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,14 +15,8 @@ public class BackendsandboxApplication {
 
 //		SpringApplication.run(BackendsandboxApplication.class, args);
 
-		ApplicationContext ctx = (ApplicationContext)SpringApplication.run(BackendsandboxApplication.class, args);
 
-		// Write data to mongodb collection
-		System.out.println("Start");
-		PersonRepository personRepository = ctx.getBean(PersonRepository.class);
-		Person p1 = new Person(123, "test");
-		personRepository.save(p1);
-		System.out.println("End");
+		String newsJson=NewsAPI.getNews();
+		System.out.println(newsJson);
 	}
-
 }
