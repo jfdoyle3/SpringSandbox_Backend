@@ -1,4 +1,4 @@
 package com.sandbox.backendsandbox.dao;
 
-public class NewsDAO {
+public interface NewsDAO {
 }
