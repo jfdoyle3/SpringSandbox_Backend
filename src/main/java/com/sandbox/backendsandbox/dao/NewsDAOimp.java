@@ -12,10 +12,15 @@ public class NewsDAOimp implements NewsDAO {
     @Autowired
     private EntityManager entityManager;
 
+    public String getNewsBySource(String endPoint, String category,  String country){
+    NewsAPI news = new NewsAPI();
+    String newsJson = news.getNewsBySource(endPoint, category,  country);
+        return newsJson;
+}
     @Override
-    public String getNewsByEndPoint() {
+    public String getNewsByEndPoint(String endPoint, String query) {
         NewsAPI news = new NewsAPI();
-        String newsJson = news.getNewsByEndPoint();
+        String newsJson = news.getNewsByEndPoint(endPoint, query);
         return newsJson;
     }
 
