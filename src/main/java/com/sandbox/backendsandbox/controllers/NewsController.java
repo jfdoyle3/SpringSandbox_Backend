@@ -15,42 +15,20 @@ public class NewsController {
     @Autowired
     private NewsServices newsServices;
 
+    @GetMapping("/newsSource/{endPoint}{category}{country}")
+    public String getNewsBySource(@PathVariable String endPoint, @RequestParam(value="category") String category, @RequestParam(value="country") String country){
+        return newsServices.getNewsBySource(endPoint, category, country);
+    }
+
+    @GetMapping("/news/{endPoint}{q}")
+    public String getNewsByEndPoint(@PathVariable String endPoint, @RequestParam(value = "q") String q) {
+        return newsServices.getNewsByEndPoint(endPoint, q);
+    }
+
     @GetMapping("/staticNews")
-    public String getStaticNews(){
+    public String getStaticNews() {
         return newsServices.getStaticNews();
     }
-
-    @GetMapping("/newsEndPoint")
-    public String getNewsByEndPoint(){
-        return newsServices.getNewsByEndPoint();
-    }
-//    @GetMapping("/news/{endPoint}{country}")
-//    public String getNewsByCountry(@PathVariable String endPoint, @RequestParam(value="country") String country){
-//        return newsServices.getNewsByCountry(endPoint, country);
-//    }
-
-//    @GetMapping("/news")
-//        public String getNews(){
-//            String newsJson= NewsAPI.getNews();
-//            return newsJson;
-//        }
-//        @GetMapping("/news/{country}")
-//    public String getNews(@PathVariable String country){
-//        String newsJson= NewsAPI.getNews(country);
-//        return newsJson;
-//    }
-//    @GetMapping("/news")
-//    public String getNews(@RequestParam(value="country") String country){
-//     //   String newsJson= NewsAPI.getNews(country);
-//    /    return newsJson;
-//    }
-//    @GetMapping("/source")
-//    public String getSource(@RequestParam(value="source") String source ){
-//     //   String newsJson= NewsAPI.getNewsSource(source);
-//        return newsJson;
-//    }
-
-
 
 
 }
