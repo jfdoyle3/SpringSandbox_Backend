@@ -1,3 +1,5 @@
 curl http://newsapi.org/v2/top-headlines -G -d country=us -d apiKey=2d95a43de732410b8467a2fa495f6e9c
 
 kaggle datasets download -d ntnu-testimon/paysim1
+
+ssh -L 5432:192.168.1.201:5432 indellibleink@gmail.com@amuzement
