@@ -15,17 +15,17 @@ public class NewsController {
     @Autowired
     private NewsServices newsServices;
 
-    @GetMapping("/newsSource/{endPoint}{category}{country}")
+    @GetMapping("/newsSource/{endPoint}")
     public String getNewsBySource(@PathVariable String endPoint, @RequestParam(value="category") String category, @RequestParam(value="country") String country){
         return newsServices.getNewsBySource(endPoint, category, country);
     }
 
-    @GetMapping("/news/{endPoint}{q}")
+    @GetMapping("/news/{endPoint}")
     public String getNewsByEndPoint(@PathVariable String endPoint, @RequestParam(value = "q") String q) {
         return newsServices.getNewsByEndPoint(endPoint, q);
     }
 
-    @GetMapping("/staticNews")
+    @GetMapping("/")
     public String getStaticNews() {
         return newsServices.getStaticNews();
     }
