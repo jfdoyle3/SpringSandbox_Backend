@@ -25,7 +25,7 @@ public class NewsController {
         return newsServices.getNewsByEndPoint(endPoint, q);
     }
 
-    @GetMapping("/")
+    @GetMapping("/staticNews")
     public String getStaticNews() {
         return newsServices.getStaticNews();
     }
